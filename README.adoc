@@ -1,0 +1,50 @@
+= Hydrogen Drumkit Tools
+
+This repository contains a script to generate drumkits for the Hydrogen
+Drum Sequencer from sounds produced by other VSTs.
+Over time it should include other utilities to work with Hydrogen drumkits.
+
+== Requirements
+
+* Python 3
+* https://github.com/mido/mido/[Mido,window=_blank] (Python library to work with midi
+files)
+* ffmpeg
+
+== Installation
+
+.Ubuntu / Debian
+
+[source,bash]
+----
+sudo apt update && sudo apt install ffmpeg
+
+git clone https://github.com/pablorocka/hydrogen_drumkit_tools.git
+cd hydrogen_drumkit_tools
+
+# Use Virtualenv (recommended)
+python3 -m venv ./venv
+source venv/bin/activate
+pip3 install mido
+----
+
+== Usage
+
+To generate a new kit using sounds from other VSTs where using the samples
+directly is not possible either for proprietary formats or license issues.
+
+. Generate midi file
+[source,bash]
+----
+python3 kit_converter.py --generate_midi --config default.yml
+----
+
+. Load midi in your DAW and apply your VST
+. Export to wav and save the file in the *media* folder
+. Run the kit generator script
+[source,bash]
+----
+python3 kit_converter.py --generate_kit --config default.yml --audio exported.wav
+----
+
+a `h2drumkit` file should be now available on the `kits` folder
