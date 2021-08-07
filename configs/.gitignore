@@ -1,0 +1,4 @@
+# Ignore files in this folder except default.yml
+*
+!.gitignore
+!default.yml

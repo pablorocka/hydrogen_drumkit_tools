@@ -9,6 +9,7 @@ Over time it should include other utilities to work with Hydrogen drumkits.
 * Python 3
 * https://github.com/mido/mido/[Mido,window=_blank] (Python library to work with midi
 files)
+* PyYaml
 * ffmpeg
 
 == Installation
@@ -25,7 +26,7 @@ cd hydrogen_drumkit_tools
 # Use Virtualenv (recommended)
 python3 -m venv ./venv
 source venv/bin/activate
-pip3 install mido
+pip3 install mido pyyaml
 ----
 
 == Usage
@@ -36,15 +37,15 @@ directly is not possible either for proprietary formats or license issues.
 . Generate midi file
 [source,bash]
 ----
-python3 kit_converter.py --generate_midi --config default.yml
+python3 kit_converter.py midi --config default.yml
 ----
 
 . Load midi in your DAW and apply your VST
-. Export to wav and save the file in the *media* folder
+. Export to wav, and save the file in the *media* folder (name the file: `/media/<kit_code>.wav`)
 . Run the kit generator script
 [source,bash]
 ----
-python3 kit_converter.py --generate_kit --config default.yml --audio exported.wav
+python3 kit_converter.py kit --config default.yml
 ----
 
 a `h2drumkit` file should be now available on the `kits` folder
