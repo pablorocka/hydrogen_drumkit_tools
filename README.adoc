@@ -41,7 +41,7 @@ python3 kit_converter.py midi --config default.yml
 ----
 
 . Load midi in your DAW and apply your VST
-. Export to wav, and save the file in the *media* folder (name the file: `/media/<kit_code>.wav`)
+. Export to wav, and save the file in the *media* folder (name the file: `media/<kit_code>.wav`)
 . Run the kit generator script
 [source,bash]
 ----
